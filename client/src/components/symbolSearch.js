@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from "react"
 import axios from "axios"
 import "bulma/css/bulma.css"
 import { useNavigate } from "react-router-dom";
+import "../styles/GlobalStyles.css"
 
 // Replace this key with your own Alpha Vantage API key
-const ALPHA_VANTAGE_API_KEY = "5JB6VTZK12BKB1D7"
+const ALPHA_VANTAGE_API_KEY = "5JB6VTZK12BKB1D7";
 
 function SymbolSearch() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -99,7 +100,7 @@ function SymbolSearch() {
   
 
   return (
-    <div className="App">
+    <div className="App search-container">
       <div className="field">
         <div className={`control ${isLoading ? "is-loading" : ""}`}>
           <input
@@ -126,9 +127,8 @@ function SymbolSearch() {
       </div>
       <button className="button is-primary" onClick={handleResultClick} disabled={!localStorage.getItem("selectedSymbol")}>Search</button>
     </div>
-  )
+  );
 }
-
 export default SymbolSearch;
 
 
