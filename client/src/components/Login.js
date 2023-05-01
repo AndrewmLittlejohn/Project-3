@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../utils/mutations';
 
 function Login(props) {
   const [email, validateEmail] = useState('');
   const [password, validatePassword] = useState('');
+  const navigate = useNavigate();
+
+  const [login] = useMutation(LOGIN);
 
   const acceptEmail = (e) => {
     validateEmail(e.target.value);
@@ -13,15 +18,25 @@ function Login(props) {
     validatePassword(e.target.value);
   };
 
-  const validate = (e) => {
+  const validate =  async (e) => {
     e.preventDefault();
-   
+    
     if (email.trim() === '' || password.trim() === '') {
       alert('Please enter a valid email and the correct password');
     } else {
-      
-      window.location.href = '/search';
-  };}
+      try {
+      const {data } = await login({
+        variables: { email, password },
+      });
+      if (data.login) {
+        navigate('/search');
+      } else {
+        alert('Please check your email and password.');
+      }
+      } catch (err) {
+        console.error(err);
+      }}
+  };
 
   return (
     <div className="box">

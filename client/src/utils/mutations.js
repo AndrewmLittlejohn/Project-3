@@ -11,13 +11,13 @@ export const User_Profile = gql`
     }
   }`;
 
-// export const LOGIN = gql`
-//   mutation Login($email: String!, $password: String!) {
-//   login(email: $email, password: $password) {
-//     user
-//     profile {
-//       _id
-//       email
-//     }
-//   }
-// }`;
+export const LOGIN = gql`
+  mutation Login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    profile {
+      _id
+      email
+    }
+  }
+}`;
