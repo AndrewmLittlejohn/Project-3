@@ -69,21 +69,22 @@ const CompanyInfoTable = ({tickerSymbol, user}) => {
 const CompanyInfoPage = () => {
   const { tickerSymbol } = useParams();
   const { user } = useContext(AuthContext);
-  console.log('User object:', user);
-  const email = user?.email;
+  const email = localStorage.getItem('email');
+  console.log('User object:', email);
+
 
   const [addStockToFavorites] = useMutation(ADD_STOCK_TO_FAVORITES);
 
-  const { loading, error, data } = useQuery(USER_INFO, {
-    variables: { email },
-    skip: !email, // Skip the query if userId is not available
-  });
+  // const { loading, error, data } = useQuery(USER_INFO, {
+  //   variables: { email },
+  //   skip: !email, // Skip the query if userId is not available
+  // });
 
-  useEffect(() => {
-    if (!loading && !error && data) {
-      console.log('User email:', data.user.email);
-    }
-  }, [loading, error, data]);
+  // useEffect(() => {
+  //   if (!loading && !error && data) {
+  //     console.log('User email:', data.user.email);
+  //   }
+  // }, [loading, error, data]);
   
   // const handleAddStock = async () => {
   //   try {

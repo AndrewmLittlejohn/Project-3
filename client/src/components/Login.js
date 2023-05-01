@@ -35,6 +35,7 @@ function Login(props) {
         console.log('Login data:', data.login);
         setLoggedIn(true);
         setEmail(email);
+        localStorage.setItem('userEmail', email);
         console.log('User email:', email);
         navigate('/search');
       } else {
