@@ -124,7 +124,7 @@ const CompanyInfoPage = () => {
   return (
     <div>
       <CompanyInfoTable tickerSymbol={tickerSymbol} handleAddStock={handleAddStock} user={user}/>
-      <button className="button is-primary" onClick={(e) => {e.preventDefault(); handleAddStock(); }}>{user ? 'Add to Favorites' : 'Please log in to add to Favorites'}</button>
+      <button className="button is-primary" onClick={(e) => {e.preventDefault(); handleAddStock(); }}>Add to Favorites</button>
 
       <div style={{ marginTop: '50px', marginBottom: '30px' }}>
         <SymbolSearch />

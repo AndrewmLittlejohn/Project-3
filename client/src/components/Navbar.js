@@ -13,7 +13,6 @@ function Navbar() {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
       
-
         <a
           role="button"
           className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
@@ -31,6 +30,8 @@ function Navbar() {
       <div id="navbarBasicExample" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
         <div className="navbar-start">
           <Link to="/" className="navbar-item">Home</Link>
+
+          
 
           {/* <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link">More</a>
