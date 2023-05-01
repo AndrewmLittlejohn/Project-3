@@ -23,14 +23,15 @@
 - [License](#license)
 - [Description](#description)
 - [Challenges](#challenges)
+- [Technology](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demo](#demo)
 - [Contributing](#contributing)
-- [Credits](#credits)
 - [Reference](#reference)
 - [Test Instructions](#test-instructions)
-- [Completed Project Link](#completed-project-link)
+- [Deployed Repository Link](#deployed-repository-link)
+- [Github Repository Link](#github-repostory-link)
 - [Questions](#questions)
 
 ## Technologies Used
@@ -90,7 +91,7 @@
 
 - 
 
-# Stock Pilot Repostory Link
+# Github Repostory Link
 
 - https://github.com/AndrewmLittlejohn/Project-3
 
