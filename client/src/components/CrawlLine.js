@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Globalstyles.css';
+import '../Globalstyles.css';
 
 const CrawlLine = () => {
   const [data, setData] = useState([]);
