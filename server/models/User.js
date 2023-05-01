@@ -21,11 +21,11 @@ const userSchema = new Schema({
       message: 'Password must be at least 8 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
     },
   },
-  // stocks: [{
-  //   symbol:{
-  //     type: String,
-  //     uppercase: true,
-  //   },}]
+  favoriteStocks: [{
+    symbol:{
+      type: String,
+     
+    },}]
 });
 
 userSchema.pre('save', async function (next) {

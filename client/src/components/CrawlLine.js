@@ -5,16 +5,20 @@ const CrawlLine = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const sector = 'economy_macro'; // Replace with the sector you want to search
-    const apiKey = '5JB6VTZK12BKB1D7'; // Replace with your Alpha Vantage API key
+    const sector = 'economy_macro'; 
+    const apiKey = '5JB6VTZK12BKB1D7'; 
     const url = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=${sector}&apikey=${apiKey}`;
 
     const response = await fetch(url);
     const jsonData = await response.json();
 
-    setData(jsonData.feed);
+    if (jsonData.feed) {
+      setData(jsonData.feed);
+    } else {
+      console.error('Error: jsonData.feed is undefined');
+    }
+    
   };
-
 
   useEffect(() => {
       fetchData();

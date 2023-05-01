@@ -21,3 +21,14 @@ export const LOGIN = gql`
     }
   }
 }`;
+
+export const ADD_STOCK_TO_FAVORITES = gql`
+  mutation AddStockToFavorites($userId: ID!, $stockSymbol: String!) {
+    addStockToFavorites(userId: $userId, stockSymbol: $stockSymbol) {
+      _id
+      email
+      favoriteStocks
+    }
+  }
+`;
+

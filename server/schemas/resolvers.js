@@ -41,18 +41,23 @@ const resolvers = {
     return {token, profile: user};
   },
 
-    addStock: async (parent, { userId, stock }) => {
-    return User.findOneAndUpdate(
-    {_id: userId },
-    {
-      $addToSet: { stocks: stock },
-    },
-    {
-      new: true,
-      runValidators: true,
+   addStockToFavorites: async (parent, { userId, stockSymbol }, context) => {
+    console.log("userId:", userId);
+    console.log("stockSymbol:", stockSymbol);
+    console.log("context.user:", context.user);
+
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(userId,
+          {$addToSet: {"favoriteStocks.symbol": stockSymbol}},
+          { new: true }
+        ); return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in to add to favorites');
     }
-    );
-    }
+    
+
+
+
   }
 };
 

@@ -5,7 +5,6 @@ const expiresIn = process.env.JWT_EXPIRES_IN || '2h';
 
 const signToken = (user) => {
   const payload = {
-    id: user._id,
     email: user.email,
   };
 

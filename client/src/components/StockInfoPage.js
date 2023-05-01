@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
+import { ADD_STOCK_TO_FAVORITES } from '../utils/mutations';
+import AuthContext from '../utils/auth';
 import '../Globalstyles.css';
+import { USER_INFO } from '../utils/queries';
+
 import SymbolSearch from './symbolSearch';
 
 
-const CompanyInfoTable = ({tickerSymbol}) => {
+const CompanyInfoTable = ({tickerSymbol, user}) => {
   const [companyInfo, setCompanyInfo] = useState({});
 
   useEffect(() => {
@@ -22,6 +27,14 @@ const CompanyInfoTable = ({tickerSymbol}) => {
 
   return (
     <div>
+      <div style={{ marginBottom: '20px' }} className="card">
+  <div className="card-content">
+    <div className="content">
+      <h3>Company Overview</h3>
+      <p>{companyInfo.Description}</p>
+    </div>
+  </div>
+</div>
     <table className="table">
       <thead>
         <tr>
@@ -38,6 +51,7 @@ const CompanyInfoTable = ({tickerSymbol}) => {
       <tbody>
         <tr>
           <td>{companyInfo.Exchange}</td>
+          {/* <td><a href="#" onClick={(e) => {e.preventDefault(); handleAddStock(); }}>{companyInfo.Name}</a></td> */}
           <td>{companyInfo.Name}</td>
           <td>{companyInfo.Sector}</td>
           <td>{companyInfo.Industry}</td>
@@ -54,10 +68,64 @@ const CompanyInfoTable = ({tickerSymbol}) => {
 
 const CompanyInfoPage = () => {
   const { tickerSymbol } = useParams();
+  const { user } = useContext(AuthContext);
+  console.log('User object:', user);
+  const email = user?.email;
+
+  const [addStockToFavorites] = useMutation(ADD_STOCK_TO_FAVORITES);
+
+  const { loading, error, data } = useQuery(USER_INFO, {
+    variables: { email },
+    skip: !email, // Skip the query if userId is not available
+  });
+
+  useEffect(() => {
+    if (!loading && !error && data) {
+      console.log('User email:', data.user.email);
+    }
+  }, [loading, error, data]);
+  
+  // const handleAddStock = async () => {
+  //   try {
+  //     const { data } = await addStockToFavorites({
+  //       variables: { userId, stockSymbol: tickerSymbol,
+        
+  //       },
+  //     });
+  //     console.log('Stock added to favorites:', data.addStockToFavorites);
+  //   } catch (error) {
+  //     console.error('Error adding stock to favorites:', error);
+  //   }
+  // };
+
+  const handleAddStock = async () => {
+    console.log('handleAddStock called'); // Log when the function is called
+    console.log('userId:', email); 
+    console.log('tickerSymbol:', tickerSymbol);
+  
+    try {
+      console.log('Attempting to add stock to favorites...');
+      const { data } = await addStockToFavorites({
+        variables: {
+          email,
+          stockSymbol: tickerSymbol,
+        },
+      });
+  
+      console.log('Stock added to favorites:', data.addStockToFavorites);
+    } catch (error) {
+      console.error('Error message:', error.message);
+      console.error('Error stack trace:', error.stack);
+    }
+  };
+  
+  
   return (
     <div>
-      <CompanyInfoTable tickerSymbol={tickerSymbol} />
-      <div style={{ marginTop: '50px' }}>
+      <CompanyInfoTable tickerSymbol={tickerSymbol} handleAddStock={handleAddStock} user={user}/>
+      <button className="button is-primary" onClick={(e) => {e.preventDefault(); handleAddStock(); }}>{user ? 'Add to Favorites' : 'Please log in to add to Favorites'}</button>
+
+      <div style={{ marginTop: '50px', marginBottom: '30px' }}>
         <SymbolSearch />
       </div>
     </div>
