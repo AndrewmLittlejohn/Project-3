@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import axios from "axios"
 import "bulma/css/bulma.css"
 import { useNavigate } from "react-router-dom";
-import "../GlobalStyles.css"
+import "../Globalstyles.css"
 
 // Replace this key with your own Alpha Vantage API key
 const ALPHA_VANTAGE_API_KEY = "5JB6VTZK12BKB1D7";
@@ -83,11 +83,7 @@ function SymbolSearch() {
     }
   }
 
-  // Handle click events on search results and save the selected symbol to localStorage
-  // const handleResultClick = (result) => {
-  //   localStorage.setItem("selectedSymbol", JSON.stringify(result))
-  //   // Perform any additional actions here when a result is clicked
-  // }
+
   const navigate = useNavigate();
 
   const handleResultClick = (result) => {
