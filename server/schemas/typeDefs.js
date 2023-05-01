@@ -8,7 +8,7 @@ type User {
 }
 
 type Auth {
-  user: ID!
+  token: String
   profile: User
 }
 

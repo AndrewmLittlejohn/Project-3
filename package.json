@@ -1,10 +1,10 @@
 {
-  "name": "tech-matchup-app",
+  "name": "stock_pilot",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "npm run develop",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",

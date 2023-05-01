@@ -18,7 +18,7 @@ import SymbolSearch from "./components/symbolSearch";
 import "bulma/css/bulma.min.css";
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache(),
 });
 

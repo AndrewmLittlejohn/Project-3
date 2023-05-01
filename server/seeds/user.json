@@ -1,4 +1,20 @@
 [{
   "email": "Andrew@test.com",
   "password": "Computer1!"
+},
+{
+  "email": "Greg@test.com",
+  "password": "Computer1!"
+},
+{
+  "email": "Peggy@test.com",
+  "password": "Computer1!"
+},
+{
+  "email": "Orlando@test.com",
+  "password": "Computer1!"
+},
+{
+  "email": "Tim@test.com",
+  "password": "Computer1!"
 }]
