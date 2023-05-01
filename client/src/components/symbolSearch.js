@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import axios from "axios"
 import "bulma/css/bulma.css"
 import { useNavigate } from "react-router-dom";
-import "..GlobalStyles.css"
+import "../GlobalStyles.css"
 
 // Replace this key with your own Alpha Vantage API key
 const ALPHA_VANTAGE_API_KEY = "5JB6VTZK12BKB1D7";
