@@ -13,7 +13,7 @@
 ##  Challenges
 - As a group, we faced numerous challenges while creating our Project. Our initial repository failed, and we had to create a new one to restart our efforts. However, this setback was an opportunity to reflect on our approach, and we learned a valuable lesson: starting simple and gradually adding complexity is the best way to achieve success.
 
-  Over the course of two weeks, we struggled to build everything at once, resulting in frustration and delays. But with newfound insight, we were able to lay out our plan and begin with less arduous functionality. As we gained momentum, we were able to build upon our successes and add advanced functionality at a comfortable pace.
+  Over the course of two weeks, we struggled to build everything at once, resulting in frustration and delays. But with newfound insight, we were able to lay out our plan and begin with less arduous functionality. As we gained momentum, we were able to build upon our successes and add advanced functionality at an accelerated pace.
 
   Through this process, we learned the importance of patience, persistence, and adaptability. We also discovered that failure can be a stepping stone to success if we approach it with an open mind and a willingness to learn. Ultimately, our journey taught us that building a successful project requires both technical skill and a willingness to iterate and improve over time.
 
