@@ -1,6 +1,6 @@
 import React from 'react';
-
-import '../styles/Globalstyles.css';
+import { Link } from 'react-router-dom';
+import '../Globalstyles.css';
 
 
 function AboutUs (){
@@ -9,10 +9,20 @@ function AboutUs (){
 <div className="card">
   <div className="card-content">
     <div className="content">
-      Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+
+      <h3>Board of Directors</h3>
+      <h4><a href="https://www.investopedia.com/terms/b/bernard-madoff.asp" target="_blank" rel="noopener noreferrer">Bernard Madoff</a></h4>
+       <h4><a href="https://www.forbes.com/profile/sam-bankman-fried/" target="_blank" rel="noopener noreferrer">Sam Bankman-Fried</a></h4>
+      <h4><a href="https://en.wikipedia.org/wiki/Jordan_Belfort" target="_blank" rel="noopener noreferrer">Jordan Belfort</a></h4>
+      <h4><a href="https://en.wikipedia.org/wiki/Charles_Ponzi" target="_blank" rel="noopener noreferrer">Charles Ponzi</a></h4>
+
+      <p><Link to="/nope">Accounting and Financial Attestations provided by Arthur Andersen</Link></p>
+      
     </div>
   </div>
 </div>
+
+
   );
 }
 

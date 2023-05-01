@@ -4,11 +4,15 @@ const typeDefs = gql`
 type User {
   _id: ID
   email: String
-  stocks: [String!]
+  favoriteStocks: [Stock!]
+}
+
+type Stock {
+  symbol: String
 }
 
 type Auth {
-  user: ID!
+  token: String
   profile: User
 }
 
@@ -20,7 +24,7 @@ type Query {
 type Mutation {
   addUser(email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
-  addStock(userId: ID!, stock: String!): User
+  addStockToFavorites(userId: ID!, stockSymbol: String!): User
   removeUser(userId: ID!): User
   removeStock(userId: ID!, stock: String!): User
 }`;

@@ -12,3 +12,11 @@ export const Stock_Search = gql`
     }
   }
 `;
+
+export const USER_INFO = gql `
+query GetUserEmail($userId: ID!) {
+  user(_id: $userId) {
+  email
+  }
+}
+`;

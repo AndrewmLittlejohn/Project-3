@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Globalstyles.css';
+import '../Globalstyles.css';
 
 function StockSearch() {
   return (

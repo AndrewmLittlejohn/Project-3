@@ -1,12 +1,7 @@
-//Search bar for Stock Symbols:
-
-//This code introduces a loading indicator, error handling, and better user experience by allowing users to select stock symbols from the search results. Make sure to apply some CSS styles for the new elements like .error and .search-result. 
-
-//This code goes inside components/symbolSearch.js file:
-
 import React, { useState, useEffect, useRef } from "react"
 import axios from "axios"
 import "bulma/css/bulma.css"
+import { useNavigate } from "react-router-dom";
 import "../styles/GlobalStyles.css"
 
 // Replace this key with your own Alpha Vantage API key
@@ -22,18 +17,18 @@ function SymbolSearch() {
 
   // Load the previously selected stock symbol from localStorage (if available)
   // and set up the timeout cleanup
-  useEffect(() => {
-    const savedSymbol = localStorage.getItem("selectedSymbol")
-    if (savedSymbol) {
-      handleResultClick(JSON.parse(savedSymbol))
-    }
+  // useEffect(() => {
+  //   const savedSymbol = localStorage.getItem("selectedSymbol")
+  //   if (savedSymbol) {
+  //     handleResultClick(JSON.parse(savedSymbol))
+  //   }
 
-    return () => {
-      if (searchTimeout) {
-        clearTimeout(searchTimeout)
-      }
-    }
-  }, [searchTimeout])
+  //   return () => {
+  //     if (searchTimeout) {
+  //       clearTimeout(searchTimeout)
+  //     }
+  //   }
+  // }, [searchTimeout])
 
   // Handle input changes, setting the search term, and managing the search timeout
   const handleInputChange = (event) => {
@@ -89,10 +84,20 @@ function SymbolSearch() {
   }
 
   // Handle click events on search results and save the selected symbol to localStorage
+  // const handleResultClick = (result) => {
+  //   localStorage.setItem("selectedSymbol", JSON.stringify(result))
+  //   // Perform any additional actions here when a result is clicked
+  // }
+  const navigate = useNavigate();
+
   const handleResultClick = (result) => {
-    localStorage.setItem("selectedSymbol", JSON.stringify(result))
-    // Perform any additional actions here when a result is clicked
-  }
+    localStorage.setItem("selectedSymbol", result.symbol); // <-- Store only the stock symbol
+    const selectedSymbol = localStorage.getItem("selectedSymbol");
+    navigate(`/stock/${selectedSymbol}`);
+    setSearchTerm("");
+    localStorage.removeItem("selectedSymbol");
+  };
+  
 
   return (
     <div className="App search-container">
@@ -120,75 +125,13 @@ function SymbolSearch() {
           </a>
         ))}
       </div>
+      <button className="button is-primary" onClick={handleResultClick} disabled={!localStorage.getItem("selectedSymbol")}>Search</button>
     </div>
   );
 }
 export default SymbolSearch;
 
 
-
-
-//add this code inside the index.html  
-//The main HTML file that includes a container for your REACT application.
-
-//`<!DOCTYPE html>
-//<html lang="en">
-
-//<head>
- // <meta charset="UTF-8">
- // <meta name="viewport" content="width=device-width, initial-scale=1.0">
- // <title>Stock Symbol Search</title>
- // <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
- // <link rel="stylesheet" href="./styles.css">
-//</head>
-//<body>
- // <div id="root" class="search-container"></div>
- // <script src="./index.js"></script>
-//</body>
-//</html> `
-
-
-//add this code inside a css file.
-
- // `body, html {
-  //height: 100%;
-//}
-//.search-container {
-//  display: flex;
- // justify-content: center;
-  //align-items: center;
- // height: 100%;
-//}`
-
-
-//add this code to the index.js file.
-
-// `import React from "react"
-//import ReactDOM from "react-dom"
-//import App from "./App"
-
-//ReactDOM.render(
- // <React.StrictMode>
-   // <App />
- // </React.StrictMode>,
- // document.getElementById("root")
-//)
-// `
-
-//add this into the App.js fiel
-//import React from "react"
-//import SymbolSearch from "./components/symbolSearch"
-//import "./GlobalStyles.css"
-
-//function App() {
-  //return (
-    //<div className="App">
-      //<SymbolSearch />
-    //</div>
-  //)
-//}
-
-//export default App
 
 
 

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { User_Profile } from '../utils/mutations';
 
-
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,10 +11,9 @@ function SignUp() {
   const [createUser] = useMutation(User_Profile, {
     onError: (error) => {
       console.error('Error:', error);
-    }
+    },
   });
-  const history = useNavigate();
-
+  
   const addEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -27,7 +25,7 @@ function SignUp() {
   const verifyPassword = (e) => {
     setConfirmPassword(e.target.value);
   };
-
+  const navigate = useNavigate();
   const createAccount = async () => {
     if (password !== confirmPassword) {
       alert("Password isn't the same");
@@ -37,10 +35,10 @@ function SignUp() {
       const { data } = await createUser({
         variables: { email, password },
       });
-      const user = data.addUser;
-      console.log('User:', user);
+
+      console.log('Data:', data);
       alert('Welcome to Stock Pilot');
-      history.push('/StockSearch');
+      navigate('/search');
     } catch (err) {
       console.error('Error:', err);
     }
@@ -69,8 +67,7 @@ function SignUp() {
             type="password"
             placeholder="Enter your password"
             value={password}
-            onChange={addPassword}
-          />
+            onChange={addPassword}/>
         </div>
       </div>
 
@@ -82,11 +79,9 @@ function SignUp() {
             type="password"
             placeholder="Confirm your password"
             value={confirmPassword}
-            onChange={verifyPassword}
-          />
+            onChange={verifyPassword}/>
         </div>
       </div>
-
       <div className="field is-grouped">
         <div className="control">
           <button className="button is-link" onClick={createAccount}>

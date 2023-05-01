@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
+
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
@@ -11,9 +12,7 @@ function Navbar() {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-        </a>
+      
 
         <a
           role="button"
@@ -52,7 +51,7 @@ function Navbar() {
               <Link className="button is-link" to="/SignUp">
                 <strong>Sign up</strong>
               </Link>
-              <Link to="/Login" className="button is-light">Log in</Link>
+              <Link to="/" className="button is-light">Log in</Link>
             </div>
           </div>
         </div>
