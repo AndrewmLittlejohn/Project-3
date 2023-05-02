@@ -26,7 +26,7 @@
 - [Technology](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Demo](#demo)
+- [Screenshot](#screenshot)
 - [Contributing](#contributing)
 - [Reference](#reference)
 - [Test Instructions](#test-instructions)
@@ -70,7 +70,7 @@
 - Run the App in your command line
 - Edit and Customize the App to your specific needs.
 
-## Demo
+## Screenshot
 
 - ![Screenshot](https://user-images.githubusercontent.com/66844643/235559521-602112c0-4fef-4e06-926c-e7d7a2d69838.png)
 
