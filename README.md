@@ -72,7 +72,7 @@
 
 ## Demo
 
-- 
+- ![Screenshot](https://user-images.githubusercontent.com/66844643/235559521-602112c0-4fef-4e06-926c-e7d7a2d69838.png)
 
 ## Contributing
 
@@ -89,7 +89,7 @@
 
 # Deployed Repository Link
 
-- 
+- https://git.heroku.com/tranquil-waters-89385.git
 
 # Github Repostory Link
 
