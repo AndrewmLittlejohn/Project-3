@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
-
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
-
   const toggleActive = () => {
     setIsActive(!isActive);
   };
@@ -30,20 +28,7 @@ function Navbar() {
       <div id="navbarBasicExample" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
         <div className="navbar-start">
           <Link to="/" className="navbar-item">Home</Link>
-
-          
-
-          {/* <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">More</a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">About</a>
-              <a className="navbar-item">Login</a>
-              <a className="navbar-item">Contact</a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">Report an issue</a>
-            </div>
-          </div> */}
+        
         </div>
 
         <div className="navbar-end">

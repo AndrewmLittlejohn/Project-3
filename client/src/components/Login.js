@@ -8,19 +8,15 @@ function Login(props) {
   const [email, validateEmail] = useState('');
   const [password, validatePassword] = useState('');
   const navigate = useNavigate();
- 
-  const {setLoggedIn, setEmail} = useContext(AuthContext);
-
+   const {setLoggedIn, setEmail} = useContext(AuthContext);
   const [login] = useMutation(LOGIN);
 
   const acceptEmail = (e) => {
     validateEmail(e.target.value);
   };
-
   const acceptPassword = (e) => {
     validatePassword(e.target.value);
   };
-
   const validate =  async (e) => {
     e.preventDefault();
     

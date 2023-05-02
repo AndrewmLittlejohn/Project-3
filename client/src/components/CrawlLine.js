@@ -34,8 +34,6 @@ const CrawlLine = () => {
       {data.map((item, index) => (
         <div className="tidbit" key={index}>
          <a href={item.url}><h6 className='tidbitDetail'>{item.title}</h6></a>
-            
-       
         </div>
       ))}
       </div>

@@ -50,55 +50,7 @@ function Favorites() {
     </div>
   );
 }
-
 export default Favorites;
-
-
-
-//This code goes in the App.js file: ?
-
-`import React, { useState, useRef } from 'react';
-import axios from 'axios';
-import { TextField, CircularProgress, List, ListItem, ListItemText, Alert } from '@mui/material';
-import Favorites from './components/Favorites';
-import './App.css';
-
-// ... rest of the App component code ...
-
-  const handleResultClick = (result) => {
-    setSearchTerm(result.symbol);
-    setSearchResults([]);
-    inputRef.current.focus();
-    favoritesRef.current.handleAddFavorite(result.symbol);
-  };
-
-  return (
-    <div className="App">
-      <TextField
-        inputRef={inputRef}
-        fullWidth
-        label="Search stock symbol"
-        value={searchTerm}
-        onChange={handleInputChange}
-      />
-      {isLoading && <CircularProgress />}
-      {error && <Alert severity="error">{error}</Alert>}
-      <List>
-        {searchResults.map((result) => (
-          <ListItem button key={result.symbol} onClick={() => handleResultClick(result)}>
-            <ListItemText primary={`${result.symbol} - ${result.name}`} />
-          </ListItem>
-        ))}
-      </List>
-      <Favorites ref={favoritesRef} />
-    </div>
-  );
-}
-
-export default App;
-`
-
-
 
 
 

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import '../Globalstyles.css';
 
 function footer(){
@@ -13,10 +12,5 @@ return (
         </p>
       </div>
     </footer>
-
-
-)
-
-}
-
+)}
 export default footer; 

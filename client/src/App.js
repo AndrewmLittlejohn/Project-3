@@ -8,8 +8,6 @@ import StockInfoPage from "./components/StockInfoPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
-import UserPortfolio from "./components/UserPortfolio";
-import UserProfile from "./components/UserProfile";
 
 import SymbolSearch from "./components/symbolSearch";
 import { AuthProvider } from './utils/auth';
@@ -44,9 +42,7 @@ const App = () => {
               {/* <Route path="/info" element={<InfoScroller />} /> */}
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/portfolio" element={<UserPortfolio />} />
-              <Route path="/profile" element={<UserProfile />} />
-              <Route path="/search" element={<SymbolSearch />} />
+               <Route path="/search" element={<SymbolSearch />} />
               <Route path="/aboutus" element={<AboutUs />} />
             </Routes>
           </main>
